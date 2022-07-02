@@ -1,10 +1,11 @@
 using System.ComponentModel.DataAnnotations;
+using Microsoft.EntityFrameworkCore;
 
 namespace Net6ShCart.Entity.Layer.DAL.Entities
 {
     public class ShoppingCartEntity
     {
-        [Key]
+        
         public long UserID {get; set;}
         public long ProductID {get; set;}
         public string ProductName {get; set;}

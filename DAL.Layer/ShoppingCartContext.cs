@@ -11,6 +11,12 @@ namespace  Net6ShCart.DAL.Layer
         {
         }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<ShoppingCartEntity>()
+                .HasKey(c => new { c.UserID, c.ProductID });
+        }
+
         public DbSet<ShoppingCartEntity> GetShoppingCartItems { get; set; } = null!;
     }
 }
