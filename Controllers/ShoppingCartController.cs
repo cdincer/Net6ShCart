@@ -21,7 +21,7 @@ namespace Net6ShCart.Controllers
             _context = context;
         }
 
-        // GET: api/ShoppingCart
+        // GET: api/ShoppingCart /Read All
         [HttpGet]
         public async Task<ActionResult<IEnumerable<ShoppingCartEntity>>> GetGetShoppingCartItems()
         {
@@ -32,15 +32,15 @@ namespace Net6ShCart.Controllers
             return await _context.GetShoppingCartItems.ToListAsync();
         }
 
-        // GET: api/ShoppingCart/5
+        // GET: UserID,ProductID /Read Single
         [HttpGet("{id}")]
-        public async Task<ActionResult<ShoppingCartEntity>> GetShoppingCartEntity(long id)
+        public async Task<ActionResult<ShoppingCartEntity>> GetShoppingCartEntity(long UserID,long ProductID)
         {
           if (_context.GetShoppingCartItems == null)
           {
               return NotFound();
           }
-            var shoppingCartEntity = await _context.GetShoppingCartItems.FindAsync(id);
+            var shoppingCartEntity = await _context.GetShoppingCartItems.FindAsync(UserID,ProductID);
 
             if (shoppingCartEntity == null)
             {
@@ -50,8 +50,7 @@ namespace Net6ShCart.Controllers
             return shoppingCartEntity;
         }
 
-        // PUT: api/ShoppingCart/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        // PUT: api/ShoppingCart/5 /Update
         [HttpPut("{id}")]
         public async Task<IActionResult> PutShoppingCartEntity(long id, ShoppingCartEntity shoppingCartEntity)
         {
@@ -81,8 +80,7 @@ namespace Net6ShCart.Controllers
             return NoContent();
         }
 
-        // POST: api/ShoppingCart
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        // POST: api/ShoppingCart /Create
         [HttpPost]
         public async Task<ActionResult<ShoppingCartEntity>> PostShoppingCartEntity(ShoppingCartEntity shoppingCartEntity)
         {
@@ -96,7 +94,7 @@ namespace Net6ShCart.Controllers
           return CreatedAtAction(nameof(GetShoppingCartEntity), new { id = shoppingCartEntity.UserID }, shoppingCartEntity);
         }
 
-        // DELETE: api/ShoppingCart/5
+        // DELETE: api/ShoppingCart/5 /Delete
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteShoppingCartEntity(long id)
         {
