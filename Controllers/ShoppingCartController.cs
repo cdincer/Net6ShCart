@@ -73,7 +73,7 @@ namespace Net6ShCart.Controllers
 
             if(decision)
             {
-             await _repo.AddItemShoppingCart(shoppingCartEntity);
+             await _repo.UpdateItemShoppingCart(shoppingCartEntity);
             }
             else
             {
