@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Net6ShCart.Entity.Layer.DAL.Entities;
 
-namespace Net6ShCart.Controllers.Rules
+namespace Net6ShCart.Controllers.Rules.StockCheckRulesEngine
 {
     public class StockLimitRule : IStockCheckRule
     {

@@ -9,7 +9,7 @@ namespace Net6ShCart.DAL.Layer.ShoppingCart
 {
     public interface IProductStockRepository
     {
-        Task<ActionResult<ProductStockEntity>> GetProductStock(long ProductID);
+        Task<ActionResult<long>> GetProductStock(long ProductID);
         Task<ActionResult<ProductStockEntity>> AddProductStock(ProductStockEntity ItemToAdd);
     }
 }

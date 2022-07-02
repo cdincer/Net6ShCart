@@ -8,3 +8,5 @@ obj/Debug/net6.0/Net6ShCart.dll
 obj/Debug/net6.0/Net6ShCart.GeneratedMSBuildEditorConfig.editorconfig
 obj/Debug/net6.0/project.razor.json
 obj/Debug/net6.0/ref/Net6ShCart.dll
+obj/staticwebassets.pack.sentinel
+bin/Debug/net6.0/Net6ShCart.dll

@@ -15,6 +15,8 @@ namespace  Net6ShCart.DAL.Layer
         {
             modelBuilder.Entity<ShoppingCartEntity>()
                 .HasKey(c => new { c.UserID, c.ProductID });
+            modelBuilder.Entity<ProductStockEntity>()
+                .HasKey(c => new { c.ProductID, c.ProductWareHouseID });
         }
 
         public DbSet<ShoppingCartEntity> ShoppingCartEntities { get; set; } = null!;

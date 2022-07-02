@@ -15,18 +15,24 @@ namespace Net6ShCart.DAL.Layer.ShoppingCart
         {
             this._context = context;
         }
-        public async Task<ActionResult<ProductStockEntity>> GetProductStock(long ProductID)
+        public async Task<ActionResult<long>> GetProductStock(long ProductID)
         {
-             var items = await _context.ProductStockEntities.FindAsync(ProductID);
-
-            return items;        
+            var WarehouseList = _context.ProductStockEntities.Select(x => new { x.ProductWareHouseID }).Distinct().ToList();
+            long sumStock = 0;
+            foreach (var item in WarehouseList)
+            {
+                ProductStockEntity goBetween = new ProductStockEntity();
+                goBetween = await _context.ProductStockEntities.FindAsync(ProductID, item.ProductWareHouseID);
+                sumStock += goBetween != null ? goBetween.ProductStock : 0;
+            }
+            return sumStock;
         }
 
         public async Task<ActionResult<ProductStockEntity>> AddProductStock(ProductStockEntity ItemToAdd)
         {
             if (_context.ShoppingCartEntities == null)
             {
-               return  null;
+                return null;
             }
             _context.ProductStockEntities.Add(ItemToAdd);
             await _context.SaveChangesAsync();

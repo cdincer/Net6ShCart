@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Net6ShCart.Controllers.Rules.StockCheckRulesEngine;
 using Net6ShCart.DAL.Layer;
 using Net6ShCart.DAL.Layer.ShoppingCart;
 using Net6ShCart.Entity.Layer.DAL.Entities;
@@ -93,10 +94,18 @@ namespace Net6ShCart.Controllers
             {
                 return Problem("Entity set 'ShoppingCartContext.GetShoppingCartItems'  is null.");
             }
-            /*
-            Rule Engine Spot Check Before Adding.
-          */
-            await _repo.AddItemShoppingCart(shoppingCartEntity);
+            bool decision = false;
+            StockCalculator stockCalculator = new StockCalculator(_StockRepo);
+            decision = stockCalculator.CalculateStock(shoppingCartEntity);
+
+            if(decision)
+            {
+             await _repo.AddItemShoppingCart(shoppingCartEntity);
+            }
+            else
+            {
+                return Problem("Sorry you can't add that item to your shopping cart.");
+            }
 
             return CreatedAtAction(nameof(GetShoppingCartEntity), new { id = shoppingCartEntity.UserID }, shoppingCartEntity);
         }
