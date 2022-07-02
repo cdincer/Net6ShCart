@@ -8,7 +8,7 @@ namespace Net6ShCart.DAL.Layer
     {
 
 
-         private readonly ShoppingCartContext _context;
+        private readonly ShoppingCartContext _context;
         public Seed(ShoppingCartContext context)
         {
             this._context = context;
@@ -31,6 +31,14 @@ namespace Net6ShCart.DAL.Layer
             foreach(var item in StockWarehouseItems)
             {
                 productStockRepository.AddProductStock(item);
+            }
+
+             seedData = System.IO.File.ReadAllText("DAL.Layer/SeedJsonFiles/ProductSeedData.json");
+            var ProductItems = JsonConvert.DeserializeObject<List<ProductEntity>>(seedData);
+            ProductRepository productRepository = new ProductRepository(_context);
+            foreach(var item in ProductItems)
+            {
+                productRepository.AddProductEntity(item);
             }
         }
     }

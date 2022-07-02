@@ -21,5 +21,6 @@ namespace  Net6ShCart.DAL.Layer
 
         public DbSet<ShoppingCartEntity> ShoppingCartEntities { get; set; } = null!;
         public DbSet<ProductStockEntity> ProductStockEntities {get; set;} = null!;
+        public DbSet<ProductEntity> ProductEntities {get; set;} = null;
     }
 }

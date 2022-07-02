@@ -19,12 +19,14 @@ namespace Net6ShCart.Controllers
         private readonly ShoppingCartContext _context;
         private readonly IShoppingCartRepository _repo;
         private readonly IProductStockRepository _StockRepo;
+        private readonly IProductRepository _ProductRepo;
 
-        public ShoppingCartController(ShoppingCartContext context, IShoppingCartRepository repo, IProductStockRepository stockrepo)
+        public ShoppingCartController(ShoppingCartContext context, IShoppingCartRepository repo, IProductStockRepository stockrepo,IProductRepository productRepo)
         {
             _context = context;
             _repo = repo;
             _StockRepo = stockrepo;
+            _ProductRepo = productRepo;
         }
 
         // GET: api/ShoppingCart /Read All
@@ -57,33 +59,28 @@ namespace Net6ShCart.Controllers
         }
 
         // PUT: api/ShoppingCart/5 /Update
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutShoppingCartEntity(long id, ShoppingCartEntity shoppingCartEntity)
+        [HttpPut]
+        public async Task<IActionResult> PutShoppingCartEntity(ShoppingCartEntity shoppingCartEntity)
         {
-            if (id != shoppingCartEntity.UserID)
+      
+            if (_context.ShoppingCartEntities == null)
             {
-                return BadRequest();
+                return Problem("Entity set 'ShoppingCartContext.GetShoppingCartItems'  is null.");
+            }
+            bool decision = false;
+            StockCalculator stockCalculator = new StockCalculator(_StockRepo,_ProductRepo);
+            decision = stockCalculator.CalculateStock(shoppingCartEntity);
+
+            if(decision)
+            {
+             await _repo.AddItemShoppingCart(shoppingCartEntity);
+            }
+            else
+            {
+                return Problem("Sorry you can't add that item to your shopping cart.");
             }
 
-            _context.Entry(shoppingCartEntity).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!ShoppingCartEntityExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return NoContent();
+            return CreatedAtAction(nameof(GetShoppingCartEntity), new { id = shoppingCartEntity.UserID }, shoppingCartEntity);
         }
 
         // POST: api/ShoppingCart /Create
@@ -95,7 +92,7 @@ namespace Net6ShCart.Controllers
                 return Problem("Entity set 'ShoppingCartContext.GetShoppingCartItems'  is null.");
             }
             bool decision = false;
-            StockCalculator stockCalculator = new StockCalculator(_StockRepo);
+            StockCalculator stockCalculator = new StockCalculator(_StockRepo,_ProductRepo);
             decision = stockCalculator.CalculateStock(shoppingCartEntity);
 
             if(decision)
@@ -111,7 +108,7 @@ namespace Net6ShCart.Controllers
         }
 
         // DELETE: api/ShoppingCart/5 /Delete
-        [HttpDelete("{id}")]
+        [HttpDelete]
         public async Task<IActionResult> DeleteShoppingCartEntity(long id)
         {
             if (_context.ShoppingCartEntities == null)

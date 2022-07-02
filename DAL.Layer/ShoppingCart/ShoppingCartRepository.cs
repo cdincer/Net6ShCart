@@ -58,9 +58,17 @@ namespace Net6ShCart.DAL.Layer.ShoppingCart
             return shoppingCartEntity;
         }
 
-        public Task<ActionResult<ShoppingCartEntity>> UpdateItemShoppingCart(ShoppingCartEntity ItemToUpdate)
+        public async Task<ActionResult<ShoppingCartEntity>> UpdateItemShoppingCart(ShoppingCartEntity ItemToUpdate)
         {
-            throw new NotImplementedException();
+            if (_context.ShoppingCartEntities == null)
+            {
+             return  null;
+            }
+            var replace = await _context.ShoppingCartEntities.FirstAsync(c=>c.UserID == ItemToUpdate.UserID && c.ProductID == ItemToUpdate.ProductID);
+            replace.Quantity = ItemToUpdate.Quantity;
+            await _context.SaveChangesAsync();
+
+            return ItemToUpdate;
         }
     }
 }

@@ -10,10 +10,12 @@ namespace Net6ShCart.Controllers.Rules.StockCheckRulesEngine
     public class StockCalculator
     {
         private readonly IProductStockRepository _StockRepo;
+        private readonly IProductRepository _ProductRepo;
 
-        public StockCalculator(IProductStockRepository stockrepo)
+        public StockCalculator(IProductStockRepository stockrepo,IProductRepository productRepo)
         {
             _StockRepo = stockrepo;
+            _ProductRepo=productRepo;
         }
 
 
@@ -21,7 +23,7 @@ namespace Net6ShCart.Controllers.Rules.StockCheckRulesEngine
         {
             var rules = new List<IStockCheckRule>();
             rules.Add(new StockExistsRule(_StockRepo));
-            rules.Add(new StockLimitRule());
+            rules.Add(new StockLimitRule(_ProductRepo));
 
             var engine = new StockCheckRuleEngine(rules);
             return engine.CheckStockRules(shoppingCartEntity);

@@ -12,10 +12,15 @@
       {
         "ProductID": 1001,
         "ProductWareHouseID": 2502,
-        "ProductStock": 4
+        "ProductStock": 19
       },
       {
         "ProductID": 1004,
+        "ProductWareHouseID": 2502,
+        "ProductStock": 20
+      },
+      {
+        "ProductID": 1003,
         "ProductWareHouseID": 2502,
         "ProductStock": 20
       }

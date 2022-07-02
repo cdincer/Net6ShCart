@@ -23,6 +23,7 @@ internal class Program
         builder.Services.AddScoped<ISeed,Seed>();
         builder.Services.AddScoped<IShoppingCartRepository,ShoppingCartRepository>();
         builder.Services.AddScoped<IProductStockRepository,ProductStockRepository>();
+        builder.Services.AddScoped<IProductRepository,ProductRepository>();
 
 
         var app = builder.Build();

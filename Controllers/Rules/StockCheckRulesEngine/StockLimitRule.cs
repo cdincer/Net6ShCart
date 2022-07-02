@@ -2,23 +2,31 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Net6ShCart.DAL.Layer.ShoppingCart;
 using Net6ShCart.Entity.Layer.DAL.Entities;
 
 namespace Net6ShCart.Controllers.Rules.StockCheckRulesEngine
 {
     public class StockLimitRule : IStockCheckRule
     {
-        //Not allowed to get more than 4 in this productCategory.
-      
+        //Not allowed to get more than certain amount,in this product category.
+        private readonly IProductRepository _ProductRepo;
+        long CertainCategoryID = 9999; 
+        public StockLimitRule(IProductRepository productrepo)
+        {
+            _ProductRepo = productrepo;
+        }
+
         public bool CalculateStockRule(ShoppingCartEntity ShoppingCartEntity)
         {
-            if(ShoppingCartEntity.Quantity > 4)
+            var productEntity = _ProductRepo.GetProductEntity(ShoppingCartEntity.ProductID);
+            if (ShoppingCartEntity.Quantity > 12 &&  CertainCategoryID == productEntity.Result.ProductCateGoryID)
             {
                 return false;
             }
             else
             {
-            return true;
+                return true;
             }
         }
     }
