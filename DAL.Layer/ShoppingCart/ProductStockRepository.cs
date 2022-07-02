@@ -17,7 +17,7 @@ namespace Net6ShCart.DAL.Layer.ShoppingCart
         }
         public async Task<ActionResult<ProductStockEntity>> GetProductStock(long ProductID)
         {
-             var items = _context.ProductStockEntities.FirstOrDefault(c=>c.ProductID == c.ProductID);
+             var items = await _context.ProductStockEntities.FindAsync(ProductID);
 
             return items;        
         }

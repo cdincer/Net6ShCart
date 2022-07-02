@@ -7,7 +7,7 @@ namespace Net6ShCart.DAL.Layer.ShoppingCart
     {
          Task<ActionResult<ShoppingCartEntity>> AddItemShoppingCart(ShoppingCartEntity ItemToAdd);
          Task<ActionResult<ShoppingCartEntity>> GetItemShoppingCart(long UserID,long ProductID);
-         Task<ActionResult<ShoppingCartEntity>> GetAllItemShoppingCart();
+        Task<ActionResult<IEnumerable<ShoppingCartEntity>>> GetAllItemShoppingCart();
          Task<ActionResult<ShoppingCartEntity>> UpdateItemShoppingCart(ShoppingCartEntity ItemToUpdate);
          Task<IActionResult> DeleteItemShoppingCart(ShoppingCartEntity ItemToUpdate);
         Task<IActionResult> DeleteAllShoppingCart();

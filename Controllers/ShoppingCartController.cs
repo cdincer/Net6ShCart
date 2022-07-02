@@ -19,7 +19,7 @@ namespace Net6ShCart.Controllers
         private readonly IShoppingCartRepository _repo;
         private readonly IProductStockRepository _StockRepo;
 
-        public ShoppingCartController(ShoppingCartContext context,IShoppingCartRepository repo,IProductStockRepository stockrepo)
+        public ShoppingCartController(ShoppingCartContext context, IShoppingCartRepository repo, IProductStockRepository stockrepo)
         {
             _context = context;
             _repo = repo;
@@ -30,22 +30,22 @@ namespace Net6ShCart.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<ShoppingCartEntity>>> GetGetShoppingCartItems()
         {
-          if (_context.ShoppingCartEntities == null)
-          {
-              return NotFound();
-          }
-            return await _context.ShoppingCartEntities.ToListAsync();
+            if (_context.ShoppingCartEntities == null)
+            {
+                return NotFound();
+            }
+            return await _repo.GetAllItemShoppingCart();
         }
 
         // GET: UserID,ProductID /Read Single
         [HttpGet("{id}")]
-        public async Task<ActionResult<ShoppingCartEntity>> GetShoppingCartEntity(long UserID,long ProductID)
+        public async Task<ActionResult<ShoppingCartEntity>> GetShoppingCartEntity(long UserID, long ProductID)
         {
-          if (_context.ShoppingCartEntities == null)
-          {
-              return NotFound();
-          }
-            var shoppingCartEntity = await _context.ShoppingCartEntities.FindAsync(UserID,ProductID);
+            if (_context.ShoppingCartEntities == null)
+            {
+                return NotFound();
+            }
+            var shoppingCartEntity = await _repo.GetItemShoppingCart(UserID, ProductID);
 
             if (shoppingCartEntity == null)
             {
@@ -89,16 +89,16 @@ namespace Net6ShCart.Controllers
         [HttpPost]
         public async Task<ActionResult<ShoppingCartEntity>> PostShoppingCartEntity(ShoppingCartEntity shoppingCartEntity)
         {
-          if (_context.ShoppingCartEntities == null)
-          {
-              return Problem("Entity set 'ShoppingCartContext.GetShoppingCartItems'  is null.");
-          }
-          /*
-          Rule Engine Spot Check Before Adding.
-        */
-           await _repo.AddItemShoppingCart(shoppingCartEntity);
+            if (_context.ShoppingCartEntities == null)
+            {
+                return Problem("Entity set 'ShoppingCartContext.GetShoppingCartItems'  is null.");
+            }
+            /*
+            Rule Engine Spot Check Before Adding.
+          */
+            await _repo.AddItemShoppingCart(shoppingCartEntity);
 
-          return CreatedAtAction(nameof(GetShoppingCartEntity), new { id = shoppingCartEntity.UserID }, shoppingCartEntity);
+            return CreatedAtAction(nameof(GetShoppingCartEntity), new { id = shoppingCartEntity.UserID }, shoppingCartEntity);
         }
 
         // DELETE: api/ShoppingCart/5 /Delete

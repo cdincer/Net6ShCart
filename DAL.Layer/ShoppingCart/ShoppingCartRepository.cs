@@ -35,9 +35,11 @@ namespace Net6ShCart.DAL.Layer.ShoppingCart
             throw new NotImplementedException();
         }
 
-        public Task<ActionResult<ShoppingCartEntity>> GetAllItemShoppingCart()
+        public  async Task<ActionResult<IEnumerable<ShoppingCartEntity>>> GetAllItemShoppingCart()
         {
-            throw new NotImplementedException();
+        var shoppingCartEntity =  await _context.ShoppingCartEntities.ToListAsync();
+
+        return shoppingCartEntity;
         }
 
         public async Task<ActionResult<ShoppingCartEntity>?> GetItemShoppingCart(long UserID, long ProductID)
