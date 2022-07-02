@@ -4,13 +4,21 @@ using Net6ShCart.DAL.Layer.ShoppingCart;
 
 namespace Net6ShCart.DAL.Layer
 {
-    public class Seed
+    public class Seed : ISeed
     {
-        public static void SeedItems(ShoppingCartContext context)
+
+
+         private readonly ShoppingCartContext _context;
+        public Seed(ShoppingCartContext context)
         {
-            var seedData = System.IO.File.ReadAllText("ShoppingCartSeedData.json");
+            this._context = context;
+        }
+
+        public  void SeedItems()
+        {
+            var seedData = System.IO.File.ReadAllText("DAL.Layer/ShoppingCartSeedData.json");
             var ShoppingCartItems = JsonConvert.DeserializeObject<List<ShoppingCartEntity>>(seedData);
-            ShoppingCartRepository shoppingCartRepository = new ShoppingCartRepository(context);
+            ShoppingCartRepository shoppingCartRepository = new ShoppingCartRepository(_context);
 
             foreach(var item in ShoppingCartItems)
             {

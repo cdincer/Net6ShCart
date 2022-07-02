@@ -1,6 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using Net6ShCart.DAL.Layer;
 using Net6ShCart.Entity.Layer.DAL.Entities;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.DependencyInjection;
 
 internal class Program
 {
@@ -17,6 +19,9 @@ internal class Program
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
 
+        builder.Services.AddScoped<ISeed,Seed>();
+    
+
         var app = builder.Build();
 
         // Configure the HTTP request pipeline.
@@ -32,8 +37,12 @@ internal class Program
 
         app.MapControllers();
 
-        app.Run();
+        using (var scope = app.Services.CreateScope())
+        {
+            var dbInitializer = scope.ServiceProvider.GetRequiredService<ISeed>();
+            dbInitializer.SeedItems();
+        }
 
-       
+        app.Run();    
     }
 }
