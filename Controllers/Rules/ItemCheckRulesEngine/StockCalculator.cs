@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Net6ShCart.DAL.Layer.ShoppingCart;
 using Net6ShCart.Entity.Layer.DAL.Entities;
 
-namespace Net6ShCart.Controllers.Rules.StockCheckRulesEngine
+namespace Net6ShCart.Controllers.Rules.ItemCheckRulesEngine
 {
     public class StockCalculator
     {
@@ -21,7 +21,8 @@ namespace Net6ShCart.Controllers.Rules.StockCheckRulesEngine
 
         public bool CalculateStock(ShoppingCartEntity shoppingCartEntity)
         {
-            var rules = new List<IStockCheckRule>();
+            var rules = new List<IItemCheckRule>();
+            rules.Add(new ItemExistenceRule(_ProductRepo));
             rules.Add(new StockExistsRule(_StockRepo));
             rules.Add(new StockLimitRule(_ProductRepo));
 

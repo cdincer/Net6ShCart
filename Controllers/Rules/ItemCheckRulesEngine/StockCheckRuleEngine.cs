@@ -4,13 +4,13 @@ using System.Linq;
 using System.Threading.Tasks;
 using Net6ShCart.Entity.Layer.DAL.Entities;
 
-namespace Net6ShCart.Controllers.Rules.StockCheckRulesEngine
+namespace Net6ShCart.Controllers.Rules.ItemCheckRulesEngine
 {
     public class StockCheckRuleEngine
     {
-        List<IStockCheckRule> _rules = new List<IStockCheckRule>();
+        List<IItemCheckRule> _rules = new List<IItemCheckRule>();
 
-        public StockCheckRuleEngine(IEnumerable<IStockCheckRule> rules)
+        public StockCheckRuleEngine(IEnumerable<IItemCheckRule> rules)
         {
             _rules.AddRange(rules);
         }
@@ -20,7 +20,9 @@ namespace Net6ShCart.Controllers.Rules.StockCheckRulesEngine
             bool decision = false;
             foreach(var rule in _rules)
             {
-                decision = rule.CalculateStockRule(shoppingCartEntity);
+                decision = rule.CalculateItemRule(shoppingCartEntity);
+                if(!decision)
+                break;
             }
 
             return decision;

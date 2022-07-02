@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Net6ShCart.Controllers.Rules.StockCheckRulesEngine;
+using Net6ShCart.Controllers.Rules.ItemCheckRulesEngine;
 using Net6ShCart.DAL.Layer;
 using Net6ShCart.DAL.Layer.ShoppingCart;
 using Net6ShCart.Entity.Layer.DAL.Entities;

@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 using Net6ShCart.DAL.Layer.ShoppingCart;
 using Net6ShCart.Entity.Layer.DAL.Entities;
 
-namespace Net6ShCart.Controllers.Rules.StockCheckRulesEngine
+namespace Net6ShCart.Controllers.Rules.ItemCheckRulesEngine
 {
-    public class StockLimitRule : IStockCheckRule
+    public class StockLimitRule : IItemCheckRule
     {
         //Not allowed to get more than certain amount,in this product category.
         private readonly IProductRepository _ProductRepo;
@@ -17,7 +17,7 @@ namespace Net6ShCart.Controllers.Rules.StockCheckRulesEngine
             _ProductRepo = productrepo;
         }
 
-        public bool CalculateStockRule(ShoppingCartEntity ShoppingCartEntity)
+        public bool CalculateItemRule(ShoppingCartEntity ShoppingCartEntity)
         {
             var productEntity = _ProductRepo.GetProductEntity(ShoppingCartEntity.ProductID);
             if (ShoppingCartEntity.Quantity > 12 &&  CertainCategoryID == productEntity.Result.ProductCateGoryID)
