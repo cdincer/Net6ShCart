@@ -1,19 +1,19 @@
 [
     {
       "UserID": "15",
-      "ProductID": "101",
+      "ProductID": 1001,
       "ProductName": "TestProduct1",
       "Quantity": 4
     },
     {
         "UserID": "15",
-        "ProductID": "102",
+        "ProductID": 1002,
         "ProductName": "TestProduct2",
         "Quantity": 3
     },
     {
         "UserID": "14",
-        "ProductID": "101",
+        "ProductID": 1001,
         "ProductName": "TestProduct1",
         "Quantity": 8
     }

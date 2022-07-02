@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Net6ShCart.DAL.Layer;
+using Net6ShCart.DAL.Layer.ShoppingCart;
 using Net6ShCart.Entity.Layer.DAL.Entities;
 
 namespace Net6ShCart.Controllers
@@ -15,32 +16,36 @@ namespace Net6ShCart.Controllers
     public class ShoppingCartController : ControllerBase
     {
         private readonly ShoppingCartContext _context;
+        private readonly IShoppingCartRepository _repo;
+        private readonly IProductStockRepository _StockRepo;
 
-        public ShoppingCartController(ShoppingCartContext context)
+        public ShoppingCartController(ShoppingCartContext context,IShoppingCartRepository repo,IProductStockRepository stockrepo)
         {
             _context = context;
+            _repo = repo;
+            _StockRepo = stockrepo;
         }
 
         // GET: api/ShoppingCart /Read All
         [HttpGet]
         public async Task<ActionResult<IEnumerable<ShoppingCartEntity>>> GetGetShoppingCartItems()
         {
-          if (_context.GetShoppingCartItems == null)
+          if (_context.ShoppingCartEntities == null)
           {
               return NotFound();
           }
-            return await _context.GetShoppingCartItems.ToListAsync();
+            return await _context.ShoppingCartEntities.ToListAsync();
         }
 
         // GET: UserID,ProductID /Read Single
         [HttpGet("{id}")]
         public async Task<ActionResult<ShoppingCartEntity>> GetShoppingCartEntity(long UserID,long ProductID)
         {
-          if (_context.GetShoppingCartItems == null)
+          if (_context.ShoppingCartEntities == null)
           {
               return NotFound();
           }
-            var shoppingCartEntity = await _context.GetShoppingCartItems.FindAsync(UserID,ProductID);
+            var shoppingCartEntity = await _context.ShoppingCartEntities.FindAsync(UserID,ProductID);
 
             if (shoppingCartEntity == null)
             {
@@ -84,12 +89,14 @@ namespace Net6ShCart.Controllers
         [HttpPost]
         public async Task<ActionResult<ShoppingCartEntity>> PostShoppingCartEntity(ShoppingCartEntity shoppingCartEntity)
         {
-          if (_context.GetShoppingCartItems == null)
+          if (_context.ShoppingCartEntities == null)
           {
               return Problem("Entity set 'ShoppingCartContext.GetShoppingCartItems'  is null.");
           }
-            _context.GetShoppingCartItems.Add(shoppingCartEntity);
-            await _context.SaveChangesAsync();
+          /*
+          Rule Engine Spot Check Before Adding.
+        */
+           await _repo.AddItemShoppingCart(shoppingCartEntity);
 
           return CreatedAtAction(nameof(GetShoppingCartEntity), new { id = shoppingCartEntity.UserID }, shoppingCartEntity);
         }
@@ -98,17 +105,17 @@ namespace Net6ShCart.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteShoppingCartEntity(long id)
         {
-            if (_context.GetShoppingCartItems == null)
+            if (_context.ShoppingCartEntities == null)
             {
                 return NotFound();
             }
-            var shoppingCartEntity = await _context.GetShoppingCartItems.FindAsync(id);
+            var shoppingCartEntity = await _context.ShoppingCartEntities.FindAsync(id);
             if (shoppingCartEntity == null)
             {
                 return NotFound();
             }
 
-            _context.GetShoppingCartItems.Remove(shoppingCartEntity);
+            _context.ShoppingCartEntities.Remove(shoppingCartEntity);
             await _context.SaveChangesAsync();
 
             return NoContent();
@@ -116,7 +123,7 @@ namespace Net6ShCart.Controllers
 
         private bool ShoppingCartEntityExists(long id)
         {
-            return (_context.GetShoppingCartItems?.Any(e => e.UserID == id)).GetValueOrDefault();
+            return (_context.ShoppingCartEntities?.Any(e => e.UserID == id)).GetValueOrDefault();
         }
     }
 }

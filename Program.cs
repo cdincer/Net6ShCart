@@ -3,6 +3,7 @@ using Net6ShCart.DAL.Layer;
 using Net6ShCart.Entity.Layer.DAL.Entities;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
+using Net6ShCart.DAL.Layer.ShoppingCart;
 
 internal class Program
 {
@@ -20,7 +21,9 @@ internal class Program
         builder.Services.AddSwaggerGen();
 
         builder.Services.AddScoped<ISeed,Seed>();
-    
+        builder.Services.AddScoped<IShoppingCartRepository,ShoppingCartRepository>();
+        builder.Services.AddScoped<IProductStockRepository,ProductStockRepository>();
+
 
         var app = builder.Build();
 

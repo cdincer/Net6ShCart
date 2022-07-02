@@ -17,6 +17,7 @@ namespace  Net6ShCart.DAL.Layer
                 .HasKey(c => new { c.UserID, c.ProductID });
         }
 
-        public DbSet<ShoppingCartEntity> GetShoppingCartItems { get; set; } = null!;
+        public DbSet<ShoppingCartEntity> ShoppingCartEntities { get; set; } = null!;
+        public DbSet<ProductStockEntity> ProductStockEntities {get; set;} = null!;
     }
 }

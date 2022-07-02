@@ -15,11 +15,11 @@ namespace Net6ShCart.DAL.Layer.ShoppingCart
 
         public async Task<ActionResult<ShoppingCartEntity>> AddItemShoppingCart(ShoppingCartEntity ItemToAdd)
         {
-            if (_context.GetShoppingCartItems == null)
+            if (_context.ShoppingCartEntities == null)
             {
              return  null;
             }
-            _context.GetShoppingCartItems.Add(ItemToAdd);
+            _context.ShoppingCartEntities.Add(ItemToAdd);
             await _context.SaveChangesAsync();
 
             return ItemToAdd;
@@ -42,11 +42,11 @@ namespace Net6ShCart.DAL.Layer.ShoppingCart
 
         public async Task<ActionResult<ShoppingCartEntity>?> GetItemShoppingCart(long UserID, long ProductID)
         {
-            if (_context.GetShoppingCartItems == null)
+            if (_context.ShoppingCartEntities == null)
             {
                 return null;
             }
-            var shoppingCartEntity = await _context.GetShoppingCartItems.FindAsync(UserID, ProductID);
+            var shoppingCartEntity = await _context.ShoppingCartEntities.FindAsync(UserID, ProductID);
 
             if (shoppingCartEntity == null)
             {
