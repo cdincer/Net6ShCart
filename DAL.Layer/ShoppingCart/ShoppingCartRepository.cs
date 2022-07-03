@@ -17,7 +17,7 @@ namespace Net6ShCart.DAL.Layer.ShoppingCart
         {
             if (_context.ShoppingCartEntities == null)
             {
-             return  null;
+                return null;
             }
             _context.ShoppingCartEntities.Add(ItemToAdd);
             await _context.SaveChangesAsync();
@@ -30,16 +30,28 @@ namespace Net6ShCart.DAL.Layer.ShoppingCart
             throw new NotImplementedException();
         }
 
-        public Task<IActionResult> DeleteItemShoppingCart(ShoppingCartEntity ItemToUpdate)
+        public async Task<IActionResult> DeleteItemShoppingCart(ShoppingCartEntity ItemToRemove)
         {
-            throw new NotImplementedException();
+            if (_context.ShoppingCartEntities == null)
+            {
+                return null;
+            }
+            var RemoveEntity = await _context.ShoppingCartEntities.FindAsync(ItemToRemove.UserID, ItemToRemove.ProductID);
+            if (RemoveEntity == null)
+            {
+                return null;
+            }
+            _context.ShoppingCartEntities.Remove(RemoveEntity);
+            await _context.SaveChangesAsync();
+
+           return null;
         }
 
         public async Task<ActionResult<IEnumerable<ShoppingCartEntity>>> GetAllItemShoppingCart()
         {
-        var shoppingCartEntity =  await _context.ShoppingCartEntities.ToListAsync();
+            var shoppingCartEntity = await _context.ShoppingCartEntities.ToListAsync();
 
-        return shoppingCartEntity;
+            return shoppingCartEntity;
         }
 
         public async Task<ActionResult<ShoppingCartEntity>?> GetItemShoppingCart(long UserID, long ProductID)
@@ -62,9 +74,9 @@ namespace Net6ShCart.DAL.Layer.ShoppingCart
         {
             if (_context.ShoppingCartEntities == null)
             {
-             return  null;
+                return null;
             }
-            var replace = await _context.ShoppingCartEntities.FirstAsync(c=>c.UserID == ItemToUpdate.UserID && c.ProductID == ItemToUpdate.ProductID);
+            var replace = await _context.ShoppingCartEntities.FirstAsync(c => c.UserID == ItemToUpdate.UserID && c.ProductID == ItemToUpdate.ProductID);
             replace.Quantity = ItemToUpdate.Quantity;
             await _context.SaveChangesAsync();
 

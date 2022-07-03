@@ -109,21 +109,17 @@ namespace Net6ShCart.Controllers
 
         // DELETE: api/ShoppingCart/5 /Delete
         [HttpDelete]
-        public async Task<IActionResult> DeleteShoppingCartEntity(long id)
+        public async Task<IActionResult> DeleteShoppingCartEntity(ShoppingCartEntity ItemToRemove)
         {
             if (_context.ShoppingCartEntities == null)
             {
                 return NotFound();
             }
-            var shoppingCartEntity = await _context.ShoppingCartEntities.FindAsync(id);
+            var shoppingCartEntity = _repo.DeleteItemShoppingCart(ItemToRemove);
             if (shoppingCartEntity == null)
             {
                 return NotFound();
             }
-
-            _context.ShoppingCartEntities.Remove(shoppingCartEntity);
-            await _context.SaveChangesAsync();
-
             return NoContent();
         }
 
