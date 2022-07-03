@@ -10,7 +10,7 @@ namespace Net6ShCart.DAL.Layer.ShoppingCart
         Task<ActionResult<IEnumerable<ShoppingCartEntity>>> GetAllItemShoppingCart();
         Task<ActionResult<ShoppingCartEntity>> UpdateItemShoppingCart(ShoppingCartEntity ItemToUpdate);
         Task<IActionResult> DeleteItemShoppingCart(ShoppingCartEntity ItemToUpdate);
-        Task<IActionResult> DeleteAllShoppingCart();
+        Task<IActionResult> DeleteAllShoppingCart(long UserID);
     }
     
 }

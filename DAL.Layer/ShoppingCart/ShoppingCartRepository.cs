@@ -25,11 +25,6 @@ namespace Net6ShCart.DAL.Layer.ShoppingCart
             return ItemToAdd;
         }
 
-        public Task<IActionResult> DeleteAllShoppingCart()
-        {
-            throw new NotImplementedException();
-        }
-
         public async Task<IActionResult> DeleteItemShoppingCart(ShoppingCartEntity ItemToRemove)
         {
             if (_context.ShoppingCartEntities == null)
@@ -42,6 +37,23 @@ namespace Net6ShCart.DAL.Layer.ShoppingCart
                 return null;
             }
             _context.ShoppingCartEntities.Remove(RemoveEntity);
+            await _context.SaveChangesAsync();
+
+           return null;
+        }
+
+          public async Task<IActionResult> DeleteAllShoppingCart(long UserID)
+        {
+              if (_context.ShoppingCartEntities == null)
+            {
+                return null;
+            }
+            var RemoveEntity =  _context.ShoppingCartEntities.Where(c=> c.UserID == UserID).ToList();
+            if (RemoveEntity == null)
+            {
+                return null;
+            }
+            _context.ShoppingCartEntities.RemoveRange(RemoveEntity);
             await _context.SaveChangesAsync();
 
            return null;

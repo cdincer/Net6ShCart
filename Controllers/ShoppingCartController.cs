@@ -31,6 +31,7 @@ namespace Net6ShCart.Controllers
 
         // GET: api/ShoppingCart /Read All
         [HttpGet]
+        [Route("GetAllCartItems")]
         public async Task<ActionResult<IEnumerable<ShoppingCartEntity>>> GetGetShoppingCartItems()
         {
             if (_context.ShoppingCartEntities == null)
@@ -41,7 +42,8 @@ namespace Net6ShCart.Controllers
         }
 
         // GET: UserID,ProductID /Read Single
-        [HttpGet("{id}")]
+        [HttpGet]
+        [Route("GetASingleItem")]
         public async Task<ActionResult<ShoppingCartEntity>> GetShoppingCartEntity(long UserID, long ProductID)
         {
             if (_context.ShoppingCartEntities == null)
@@ -109,6 +111,7 @@ namespace Net6ShCart.Controllers
 
         // DELETE: api/ShoppingCart/5 /Delete
         [HttpDelete]
+        [Route("DeleteASingleItem")]
         public async Task<IActionResult> DeleteShoppingCartEntity(ShoppingCartEntity ItemToRemove)
         {
             if (_context.ShoppingCartEntities == null)
@@ -123,6 +126,21 @@ namespace Net6ShCart.Controllers
             return NoContent();
         }
 
+        [HttpDelete]
+        [Route("DeleteAllItems")]
+        public async Task<IActionResult> DeleteAllShoppingCartEntity(long  UserID)
+            {
+            if (_context.ShoppingCartEntities == null)
+            {
+                return NotFound();
+            }
+            var shoppingCartEntity = _repo.DeleteAllShoppingCart(UserID);
+            if (shoppingCartEntity == null)
+            {
+                return NotFound();
+            }
+            return NoContent();
+        }
         private bool ShoppingCartEntityExists(long id)
         {
             return (_context.ShoppingCartEntities?.Any(e => e.UserID == id)).GetValueOrDefault();

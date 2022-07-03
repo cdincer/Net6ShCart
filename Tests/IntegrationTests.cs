@@ -189,7 +189,7 @@ namespace Net6ShCart.Tests
                 Assert.True(result);
         }
     
-          [Theory]
+        [Theory]
         [InlineData(14,1001,"TestProduct1",2)]
         public async Task RemoveItem(long userID ,long productID,string productName,long quantity)
         {
@@ -231,6 +231,44 @@ namespace Net6ShCart.Tests
                 await ShoppingController.DeleteShoppingCartEntity(shoppingCartEntity);
                  List<ShoppingCartEntity> items = context.ShoppingCartEntities.ToList();
                 result = items.Count == 2 ? true : false;
+                Assert.True(result);
+        }
+    
+        [Theory]
+        [InlineData(15)]
+        public async Task RemoveAllItems(long userID)
+        {
+            bool result = true;
+            SqliteConnection _connection = new SqliteConnection("Filename=:memory:");
+            _connection.Open();
+            DbContextOptions _contextOptions = new DbContextOptionsBuilder<ShoppingCartContext>().UseSqlite(_connection).Options;
+            using var context = new ShoppingCartContext((DbContextOptions<ShoppingCartContext>)_contextOptions);
+                 if (context.Database.EnsureCreated())
+                {
+                    using var viewCommand = context.Database.GetDbConnection().CreateCommand();
+                    viewCommand.CommandText = @"
+                    CREATE VIEW AllResources AS
+                    SELECT ProductName
+                    FROM ShoppingCartEntities;";
+                    viewCommand.ExecuteNonQuery();
+                }
+                var ShoppingController = _fixture.GetScopedService<ShoppingCartController>(_testOutputHelper);
+                var _ShopCartRepo = _fixture.GetScopedService<IShoppingCartRepository>(_testOutputHelper); 
+                var _ProductRepo = _fixture.GetScopedService<IProductRepository>(_testOutputHelper); 
+                var _ProductStockRepo = _fixture.GetScopedService<IProductStockRepository>(_testOutputHelper); 
+
+                _ShopCartRepo = new ShoppingCartRepository(context);
+                _ProductRepo = new ProductRepository(context);
+                _ProductStockRepo = new ProductStockRepository(context);
+                ShoppingController = new ShoppingCartController(context,_ShopCartRepo,_ProductStockRepo,_ProductRepo);
+
+
+                //Basic template for testing other things with seeding.
+                Seed NewItems = new Seed(context);
+                NewItems.SeedItems();
+                await ShoppingController.DeleteAllShoppingCartEntity(userID);
+                 List<ShoppingCartEntity> items = context.ShoppingCartEntities.ToList();
+                result = items.Count == 1 ? true : false;
                 Assert.True(result);
         }
     
