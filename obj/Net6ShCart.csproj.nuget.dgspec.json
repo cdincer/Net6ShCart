@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Can\\Documents\\Visual Studio Code\\Net6ShCart\\Net6ShCart.csproj": {}
+    "c:\\Users\\Can\\Documents\\Visual Studio Code\\Net6ShCart\\Net6ShCart.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Can\\Documents\\Visual Studio Code\\Net6ShCart\\Net6ShCart.csproj": {
+    "c:\\Users\\Can\\Documents\\Visual Studio Code\\Net6ShCart\\Net6ShCart.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Can\\Documents\\Visual Studio Code\\Net6ShCart\\Net6ShCart.csproj",
+        "projectUniqueName": "c:\\Users\\Can\\Documents\\Visual Studio Code\\Net6ShCart\\Net6ShCart.csproj",
         "projectName": "Net6ShCart",
-        "projectPath": "C:\\Users\\Can\\Documents\\Visual Studio Code\\Net6ShCart\\Net6ShCart.csproj",
+        "projectPath": "c:\\Users\\Can\\Documents\\Visual Studio Code\\Net6ShCart\\Net6ShCart.csproj",
         "packagesPath": "C:\\Users\\Can\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Can\\Documents\\Visual Studio Code\\Net6ShCart\\obj\\",
+        "outputPath": "c:\\Users\\Can\\Documents\\Visual Studio Code\\Net6ShCart\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Can\\AppData\\Roaming\\NuGet\\NuGet.Config",
