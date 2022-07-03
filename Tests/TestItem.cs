@@ -13,5 +13,5 @@ namespace Net6ShCart.Tests
         {
             Assert.True(true);
         }
-    }
+    } 
 }
