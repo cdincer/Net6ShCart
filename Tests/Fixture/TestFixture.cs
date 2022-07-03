@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
-using Net6ShCart.DAL.Layer;
-using Net6ShCart.DAL.Layer.ShoppingCart;
+using Net6ShCart.DataLayer;
+using Net6ShCart.DataLayer.ShoppingCart;
 using Xunit.Microsoft.DependencyInjection;
 using Xunit.Microsoft.DependencyInjection.Abstracts;
 

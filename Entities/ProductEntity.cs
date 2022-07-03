@@ -1,5 +1,5 @@
 using System.ComponentModel.DataAnnotations;
-namespace Net6ShCart.Entity.Layer.DAL.Entities
+namespace Net6ShCart.Entities
 {
     public class ProductEntity
     {

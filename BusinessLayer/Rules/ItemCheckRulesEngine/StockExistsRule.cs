@@ -2,11 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Net6ShCart.Controllers.Rules.ItemCheckRulesEngine;
-using Net6ShCart.DAL.Layer.ShoppingCart;
-using Net6ShCart.Entity.Layer.DAL.Entities;
+using Net6ShCart.BusinessLayer.Rules.ItemCheckRulesEngine;
+using Net6ShCart.DataLayer.ShoppingCart;
+using Net6ShCart.Entities;
 
-namespace Net6ShCart.Controllers.Rules.ItemCheckRulesEngine
+namespace Net6ShCart.BusinessLayer.Rules.ItemCheckRulesEngine
 {
  
     public class StockExistsRule : IItemCheckRule

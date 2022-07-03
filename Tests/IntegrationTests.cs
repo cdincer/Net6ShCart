@@ -1,13 +1,9 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
-using Net6ShCart.Controllers;
-using Net6ShCart.DAL.Layer;
-using Net6ShCart.DAL.Layer.ShoppingCart;
-using Net6ShCart.Entity.Layer.DAL.Entities;
+using Net6ShCart.BusinessLayer;
+using Net6ShCart.DataLayer;
+using Net6ShCart.DataLayer.ShoppingCart;
+using Net6ShCart.Entities;
 using Net6ShCart.Tests.Fixture;
 using Xunit;
 using Xunit.Abstractions;

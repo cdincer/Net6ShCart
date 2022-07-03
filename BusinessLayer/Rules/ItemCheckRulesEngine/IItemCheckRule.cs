@@ -1,6 +1,6 @@
-using Net6ShCart.Entity.Layer.DAL.Entities;
+using Net6ShCart.Entities;
 
-namespace Net6ShCart.Controllers.Rules.ItemCheckRulesEngine
+namespace Net6ShCart.BusinessLayer.Rules.ItemCheckRulesEngine
 {
     public interface IItemCheckRule
     {

@@ -3,9 +3,9 @@ C:\Users\Can\Documents\Visual Studio Code\Net6ShCart\bin\Release\net6.0\testhost
 C:\Users\Can\Documents\Visual Studio Code\Net6ShCart\bin\Release\net6.0\Microsoft.TestPlatform.PlatformAbstractions.dll
 C:\Users\Can\Documents\Visual Studio Code\Net6ShCart\bin\Release\net6.0\appsettings.Development.json
 C:\Users\Can\Documents\Visual Studio Code\Net6ShCart\bin\Release\net6.0\appsettings.json
-C:\Users\Can\Documents\Visual Studio Code\Net6ShCart\bin\Release\net6.0\DAL.Layer\SeedJsonFiles\ProductSeedData.json
-C:\Users\Can\Documents\Visual Studio Code\Net6ShCart\bin\Release\net6.0\DAL.Layer\SeedJsonFiles\ProductWareHouseSeedData.json
-C:\Users\Can\Documents\Visual Studio Code\Net6ShCart\bin\Release\net6.0\DAL.Layer\SeedJsonFiles\ShoppingCartSeedData.json
+C:\Users\Can\Documents\Visual Studio Code\Net6ShCart\bin\Release\net6.0\DataLayer\SeedJsonFiles\ProductSeedData.json
+C:\Users\Can\Documents\Visual Studio Code\Net6ShCart\bin\Release\net6.0\DataLayer\SeedJsonFiles\ProductWareHouseSeedData.json
+C:\Users\Can\Documents\Visual Studio Code\Net6ShCart\bin\Release\net6.0\DataLayer\SeedJsonFiles\ShoppingCartSeedData.json
 C:\Users\Can\Documents\Visual Studio Code\Net6ShCart\bin\Release\net6.0\xunit.runner.visualstudio.dotnetcore.testadapter.dll
 C:\Users\Can\Documents\Visual Studio Code\Net6ShCart\bin\Release\net6.0\xunit.runner.reporters.netcoreapp10.dll
 C:\Users\Can\Documents\Visual Studio Code\Net6ShCart\bin\Release\net6.0\xunit.runner.utility.netcoreapp10.dll

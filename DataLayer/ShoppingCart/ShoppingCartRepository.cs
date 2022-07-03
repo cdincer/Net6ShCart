@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
-using Net6ShCart.Entity.Layer.DAL.Entities;
+using Net6ShCart.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace Net6ShCart.DAL.Layer.ShoppingCart
+namespace Net6ShCart.DataLayer.ShoppingCart
 {
     public class ShoppingCartRepository : IShoppingCartRepository
     {

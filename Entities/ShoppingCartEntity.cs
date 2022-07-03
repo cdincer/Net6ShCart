@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using Microsoft.EntityFrameworkCore;
 
-namespace Net6ShCart.Entity.Layer.DAL.Entities
+namespace Net6ShCart.Entities
 {
     public class ShoppingCartEntity
     {

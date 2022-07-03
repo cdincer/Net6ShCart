@@ -2,9 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Net6ShCart.Entity.Layer.DAL.Entities;
+using Net6ShCart.Entities;
 
-namespace Net6ShCart.DAL.Layer.ShoppingCart
+namespace Net6ShCart.DataLayer.ShoppingCart
 {
     public class ProductRepository : IProductRepository
     {

@@ -1,16 +1,10 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Net6ShCart.Controllers.Rules.ItemCheckRulesEngine;
-using Net6ShCart.DAL.Layer;
-using Net6ShCart.DAL.Layer.ShoppingCart;
-using Net6ShCart.Entity.Layer.DAL.Entities;
+using Net6ShCart.BusinessLayer.Rules.ItemCheckRulesEngine;
+using Net6ShCart.DataLayer;
+using Net6ShCart.DataLayer.ShoppingCart;
+using Net6ShCart.Entities;
 
-namespace Net6ShCart.Controllers
+namespace Net6ShCart.BusinessLayer
 {
     [Route("api/[controller]")]
     [ApiController]

@@ -1,8 +1,9 @@
-using Net6ShCart.Entity.Layer.DAL.Entities;
+using Net6ShCart.Entities;
 using Newtonsoft.Json;
-using Net6ShCart.DAL.Layer.ShoppingCart;
+using Net6ShCart.DataLayer;
+using Net6ShCart.DataLayer.ShoppingCart;
 
-namespace Net6ShCart.DAL.Layer
+namespace Net6ShCart.DataLayer
 {
     public class Seed : ISeed
     {
@@ -16,7 +17,7 @@ namespace Net6ShCart.DAL.Layer
 
         public  void SeedItems()
         {
-            var seedData = System.IO.File.ReadAllText("DAL.Layer/SeedJsonFiles/ShoppingCartSeedData.json");
+            var seedData = System.IO.File.ReadAllText("DataLayer/SeedJsonFiles/ShoppingCartSeedData.json");
             var ShoppingCartItems = JsonConvert.DeserializeObject<List<ShoppingCartEntity>>(seedData);
             ShoppingCartRepository shoppingCartRepository = new ShoppingCartRepository(_context);
 
@@ -25,7 +26,7 @@ namespace Net6ShCart.DAL.Layer
                 shoppingCartRepository.AddItemShoppingCart(item);
             }
             
-            seedData = System.IO.File.ReadAllText("DAL.Layer/SeedJsonFiles/ProductWareHouseSeedData.json");
+            seedData = System.IO.File.ReadAllText("DataLayer/SeedJsonFiles/ProductWareHouseSeedData.json");
             var StockWarehouseItems = JsonConvert.DeserializeObject<List<ProductStockEntity>>(seedData);
             ProductStockRepository productStockRepository = new ProductStockRepository(_context);
             foreach(var item in StockWarehouseItems)
@@ -33,7 +34,7 @@ namespace Net6ShCart.DAL.Layer
                 productStockRepository.AddProductStock(item);
             }
 
-             seedData = System.IO.File.ReadAllText("DAL.Layer/SeedJsonFiles/ProductSeedData.json");
+             seedData = System.IO.File.ReadAllText("DataLayer/SeedJsonFiles/ProductSeedData.json");
             var ProductItems = JsonConvert.DeserializeObject<List<ProductEntity>>(seedData);
             ProductRepository productRepository = new ProductRepository(_context);
             foreach(var item in ProductItems)

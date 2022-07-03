@@ -1,9 +1,9 @@
 using Microsoft.EntityFrameworkCore;
-using Net6ShCart.DAL.Layer;
-using Net6ShCart.Entity.Layer.DAL.Entities;
+using Net6ShCart.DataLayer;
+using Net6ShCart.Entities;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
-using Net6ShCart.DAL.Layer.ShoppingCart;
+using Net6ShCart.DataLayer.ShoppingCart;
 
 internal class Program
 {
