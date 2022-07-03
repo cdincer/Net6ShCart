@@ -17,13 +17,19 @@ internal class Program
         builder.Services.AddDbContext<ShoppingCartContext>(opt =>
             opt.UseInMemoryDatabase("ShoppingCartItems"));
 
+        builder.WebHost.ConfigureKestrel(options =>
+        {
+         options.ListenAnyIP(7294); // to listen for incoming http connection on port 7294
+        //  options.ListenAnyIP(5127, configure => configure.UseHttps()); // to listen for incoming https connection on port 7001
+        });
+
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
 
-        builder.Services.AddScoped<ISeed,Seed>();
-        builder.Services.AddScoped<IShoppingCartRepository,ShoppingCartRepository>();
-        builder.Services.AddScoped<IProductStockRepository,ProductStockRepository>();
-        builder.Services.AddScoped<IProductRepository,ProductRepository>();
+        builder.Services.AddScoped<ISeed, Seed>();
+        builder.Services.AddScoped<IShoppingCartRepository, ShoppingCartRepository>();
+        builder.Services.AddScoped<IProductStockRepository, ProductStockRepository>();
+        builder.Services.AddScoped<IProductRepository, ProductRepository>();
 
 
         var app = builder.Build();
@@ -34,8 +40,11 @@ internal class Program
             app.UseSwagger();
             app.UseSwaggerUI();
         }
+        else
+        {
+            app.UseHttpsRedirection();
+        }
 
-        app.UseHttpsRedirection();
 
         app.UseAuthorization();
 
@@ -47,6 +56,6 @@ internal class Program
             dbInitializer.SeedItems();
         }
 
-        app.Run();    
+        app.Run();
     }
 }
