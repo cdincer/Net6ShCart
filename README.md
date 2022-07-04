@@ -1,5 +1,6 @@
 ## Net6ShCart
 Practicing couple of things and seeing how NET 6.0 coming along. Everything you see below has NET 6.0 associated with them.
+Used Rule Engine for checking if a Item can be added to shopping cart, Repository pattern for connecting to DB to keep things simple.
 Technologies used on this project are:
 ```
 * Sqlite 6.0.6
