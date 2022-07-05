@@ -11,7 +11,7 @@ namespace Net6ShCart.BusinessLayer.Rules.ItemCheckRulesEngine
     {
         //Not allowed to get more than certain amount,in this product category.
         private readonly IProductRepository _ProductRepo;
-        long CertainCategoryID = 9999; 
+        long CertainCategoryID = 9999; //Normally you would get this from a cached table,Ignore this magic string. I really don't do things like this on a real project.
         public StockLimitRule(IProductRepository productrepo)
         {
             _ProductRepo = productrepo;
