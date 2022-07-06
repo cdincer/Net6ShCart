@@ -49,11 +49,11 @@ namespace Net6ShCart.DataLayer
             {
                 Log.Fatal(ex, "Seeding Failed");
             }
-               finally
-            {
-                Log.Information("Shut down complete");
-                Log.CloseAndFlush();
-            } 
+            //    finally
+            // {
+            //     Log.Information("Shut down complete");
+            //     Log.CloseAndFlush();
+            // } 
         }
     }
 }

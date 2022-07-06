@@ -8,7 +8,7 @@ Technologies used on this project are:
 * XUnit 2.4.1
 * XUnit DI 6.2.17
 * EF InMemory 6.0.6
-
+* Serilog
 ```
 
 ### Features:

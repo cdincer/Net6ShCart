@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Net6ShCart.Entities;
 using Microsoft.EntityFrameworkCore;
+using Serilog;
 
 namespace Net6ShCart.DataLayer.ShoppingCart
 {
@@ -15,12 +16,24 @@ namespace Net6ShCart.DataLayer.ShoppingCart
 
         public async Task<ActionResult<ShoppingCartEntity>> AddItemShoppingCart(ShoppingCartEntity ItemToAdd)
         {
+            try{
             if (_context.ShoppingCartEntities == null)
             {
                 return null;
             }
             _context.ShoppingCartEntities.Add(ItemToAdd);
             await _context.SaveChangesAsync();
+            Log.Information("Item Added Succesfuly");
+            }
+              catch (Exception ex)
+            {
+                Log.Fatal(ex, "Add Failed");
+            }
+            //    finally
+            // {
+            //     Log.Information("Shut down complete");
+            //     Log.CloseAndFlush();
+            // } 
 
             return ItemToAdd;
         }

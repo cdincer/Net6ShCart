@@ -37,11 +37,11 @@ namespace Net6ShCart.BusinessLayer.Rules.ItemCheckRulesEngine
                 Log.Fatal(ex, "Rule Checking Failed");
                 return false;
             }
-            finally
-            {
-                Log.Information("Shut down complete");
-                Log.CloseAndFlush();
-            }
+            // finally
+            // {
+            //     Log.Information("Shut down complete");
+            //     Log.CloseAndFlush();
+            // }
         }
     }
 }

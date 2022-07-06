@@ -15,7 +15,7 @@ internal class Program
         .WriteTo.File("logs/ShCartLogs.txt", rollingInterval: RollingInterval.Day)
         .CreateBootstrapLogger();
 
-        Log.Information("Starting up");
+        Log.Information("Main Logger Starting up");
 
 
         var builder = WebApplication.CreateBuilder(args);
