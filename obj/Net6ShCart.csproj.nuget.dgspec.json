@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\Can\\Documents\\Visual Studio Code\\Net6ShCart\\Net6ShCart.csproj": {}
+    "C:\\Users\\Can\\Documents\\Visual Studio Code\\Net6ShCart\\Net6ShCart.csproj": {}
   },
   "projects": {
-    "c:\\Users\\Can\\Documents\\Visual Studio Code\\Net6ShCart\\Net6ShCart.csproj": {
+    "C:\\Users\\Can\\Documents\\Visual Studio Code\\Net6ShCart\\Net6ShCart.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\Can\\Documents\\Visual Studio Code\\Net6ShCart\\Net6ShCart.csproj",
+        "projectUniqueName": "C:\\Users\\Can\\Documents\\Visual Studio Code\\Net6ShCart\\Net6ShCart.csproj",
         "projectName": "Net6ShCart",
-        "projectPath": "c:\\Users\\Can\\Documents\\Visual Studio Code\\Net6ShCart\\Net6ShCart.csproj",
+        "projectPath": "C:\\Users\\Can\\Documents\\Visual Studio Code\\Net6ShCart\\Net6ShCart.csproj",
         "packagesPath": "C:\\Users\\Can\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\Can\\Documents\\Visual Studio Code\\Net6ShCart\\obj\\",
+        "outputPath": "C:\\Users\\Can\\Documents\\Visual Studio Code\\Net6ShCart\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Can\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -83,6 +83,18 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[3.1.2, )"
+            },
+            "serilog.aspnetcore": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "serilog.expressions": {
+              "target": "Package",
+              "version": "[3.4.0, )"
+            },
+            "serilog.sinks.seq": {
+              "target": "Package",
+              "version": "[5.1.1, )"
             },
             "xunit": {
               "target": "Package",

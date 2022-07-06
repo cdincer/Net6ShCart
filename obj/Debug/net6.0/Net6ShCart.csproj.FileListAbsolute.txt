@@ -369,3 +369,15 @@ C:\Users\Can\Documents\Visual Studio Code\Net6ShCart\bin\Debug\net6.0\runtimes\w
 C:\Users\Can\Documents\Visual Studio Code\Net6ShCart\bin\Debug\net6.0\runtimes\win-arm64\native\e_sqlite3.dll
 C:\Users\Can\Documents\Visual Studio Code\Net6ShCart\bin\Debug\net6.0\runtimes\win-x64\native\e_sqlite3.dll
 C:\Users\Can\Documents\Visual Studio Code\Net6ShCart\bin\Debug\net6.0\runtimes\win-x86\native\e_sqlite3.dll
+c:\Users\Can\Documents\Visual Studio Code\Net6ShCart\bin\Debug\net6.0\Serilog.dll
+c:\Users\Can\Documents\Visual Studio Code\Net6ShCart\bin\Debug\net6.0\Serilog.AspNetCore.dll
+c:\Users\Can\Documents\Visual Studio Code\Net6ShCart\bin\Debug\net6.0\Serilog.Expressions.dll
+c:\Users\Can\Documents\Visual Studio Code\Net6ShCart\bin\Debug\net6.0\Serilog.Extensions.Hosting.dll
+c:\Users\Can\Documents\Visual Studio Code\Net6ShCart\bin\Debug\net6.0\Serilog.Extensions.Logging.dll
+c:\Users\Can\Documents\Visual Studio Code\Net6ShCart\bin\Debug\net6.0\Serilog.Formatting.Compact.dll
+c:\Users\Can\Documents\Visual Studio Code\Net6ShCart\bin\Debug\net6.0\Serilog.Settings.Configuration.dll
+c:\Users\Can\Documents\Visual Studio Code\Net6ShCart\bin\Debug\net6.0\Serilog.Sinks.Console.dll
+c:\Users\Can\Documents\Visual Studio Code\Net6ShCart\bin\Debug\net6.0\Serilog.Sinks.Debug.dll
+c:\Users\Can\Documents\Visual Studio Code\Net6ShCart\bin\Debug\net6.0\Serilog.Sinks.File.dll
+c:\Users\Can\Documents\Visual Studio Code\Net6ShCart\bin\Debug\net6.0\Serilog.Sinks.PeriodicBatching.dll
+c:\Users\Can\Documents\Visual Studio Code\Net6ShCart\bin\Debug\net6.0\Serilog.Sinks.Seq.dll

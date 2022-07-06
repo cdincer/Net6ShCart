@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Net6ShCart.DataLayer.ShoppingCart;
 using Net6ShCart.Entities;
+using Serilog;
 
 namespace Net6ShCart.BusinessLayer.Rules.ItemCheckRulesEngine
 {
@@ -19,14 +20,27 @@ namespace Net6ShCart.BusinessLayer.Rules.ItemCheckRulesEngine
 
         public bool CalculateItemRule(ShoppingCartEntity ShoppingCartEntity)
         {
-            var productEntity = _ProductRepo.GetProductEntity(ShoppingCartEntity.ProductID);
-            if (ShoppingCartEntity.Quantity > 12 &&  CertainCategoryID == productEntity.Result.ProductCateGoryID)
+            try
             {
+                var productEntity = _ProductRepo.GetProductEntity(ShoppingCartEntity.ProductID);
+                if (ShoppingCartEntity.Quantity > 12 && CertainCategoryID == productEntity.Result.ProductCateGoryID)
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Fatal(ex, "Stock Limit Rule Failed");
                 return false;
             }
-            else
+            finally
             {
-                return true;
+                Log.Information("Shut down complete");
+                Log.CloseAndFlush();
             }
         }
     }

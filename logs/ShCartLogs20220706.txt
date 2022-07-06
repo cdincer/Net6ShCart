@@ -1,0 +1,10 @@
+2022-07-06 20:01:20.527 +03:00 [INF] Starting up
+2022-07-06 20:01:22.102 +03:00 [INF] Shut down complete
+2022-07-06 20:02:14.056 +03:00 [INF] Starting up
+2022-07-06 20:02:21.882 +03:00 [INF] Shut down complete
+2022-07-06 20:04:00.841 +03:00 [INF] Starting up
+2022-07-06 20:04:07.023 +03:00 [INF] Seed Succesful
+2022-07-06 20:04:07.024 +03:00 [INF] Shut down complete
+2022-07-06 20:06:39.274 +03:00 [INF] Starting up
+2022-07-06 20:06:45.563 +03:00 [INF] Seed Succesful
+2022-07-06 20:06:45.563 +03:00 [INF] Shut down complete

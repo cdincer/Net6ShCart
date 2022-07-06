@@ -2,6 +2,7 @@ using Net6ShCart.Entities;
 using Newtonsoft.Json;
 using Net6ShCart.DataLayer;
 using Net6ShCart.DataLayer.ShoppingCart;
+using Serilog;
 
 namespace Net6ShCart.DataLayer
 {
@@ -17,6 +18,7 @@ namespace Net6ShCart.DataLayer
 
         public  void SeedItems()
         {
+            try{
             var seedData = System.IO.File.ReadAllText("DataLayer/SeedJsonFiles/ShoppingCartSeedData.json");
             var ShoppingCartItems = JsonConvert.DeserializeObject<List<ShoppingCartEntity>>(seedData);
             ShoppingCartRepository shoppingCartRepository = new ShoppingCartRepository(_context);
@@ -41,6 +43,17 @@ namespace Net6ShCart.DataLayer
             {
                 productRepository.AddProductEntity(item);
             }
+                Log.Information("Seed Succesful");
+            }
+              catch (Exception ex)
+            {
+                Log.Fatal(ex, "Seeding Failed");
+            }
+               finally
+            {
+                Log.Information("Shut down complete");
+                Log.CloseAndFlush();
+            } 
         }
     }
 }

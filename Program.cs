@@ -4,11 +4,20 @@ using Net6ShCart.Entities;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Net6ShCart.DataLayer.ShoppingCart;
+using Serilog;
 
 internal class Program
 {
     private static void Main(string[] args)
     {
+        Log.Logger = new LoggerConfiguration()
+        .WriteTo.Console()
+        .WriteTo.File("logs/ShCartLogs.txt", rollingInterval: RollingInterval.Day)
+        .CreateBootstrapLogger();
+
+        Log.Information("Starting up");
+
+
         var builder = WebApplication.CreateBuilder(args);
 
         // Add services to the container.
@@ -19,8 +28,8 @@ internal class Program
 
         builder.WebHost.ConfigureKestrel(options =>
         {
-         options.ListenAnyIP(7294); // to listen for incoming http connection on port 7294
-        //  options.ListenAnyIP(5127, configure => configure.UseHttps()); // to listen for incoming https connection on port 7001
+            options.ListenAnyIP(7294); // to listen for incoming http connection on port 7294
+                                       //  options.ListenAnyIP(5127, configure => configure.UseHttps()); // to listen for incoming https connection on port 7001
         });
 
         builder.Services.AddEndpointsApiExplorer();
