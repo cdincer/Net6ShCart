@@ -27,3 +27,8 @@
 2022-07-07 21:29:33.907 +03:00 [INF] Seed Succesful
 2022-07-07 21:30:16.474 +03:00 [INF] Item Added Succesfuly
 2022-07-07 21:30:31.288 +03:00 [INF] Item Added Succesfuly
+2022-07-07 21:36:50.566 +03:00 [INF] Main Logger Starting up
+2022-07-07 21:36:52.072 +03:00 [INF] Item Added Succesfuly
+2022-07-07 21:36:52.077 +03:00 [INF] Item Added Succesfuly
+2022-07-07 21:36:52.079 +03:00 [INF] Item Added Succesfuly
+2022-07-07 21:36:52.119 +03:00 [INF] Seed Succesful

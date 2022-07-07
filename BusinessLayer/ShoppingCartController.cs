@@ -138,7 +138,7 @@ namespace Net6ShCart.BusinessLayer
             {
                 return NotFound();
             }
-            return NoContent();
+            return Ok();
         }
 
         [HttpDelete]
@@ -154,7 +154,7 @@ namespace Net6ShCart.BusinessLayer
             {
                 return NotFound();
             }
-            return NoContent();
+            return Ok();
         }
         private bool ShoppingCartEntityExists(long id)
         {
