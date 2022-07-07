@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "fRl/yBRMeSy4hQx3NX2WZfcFYLYSywg7Psp3XYZyK7pQOQp2YbDFuNih9pAbMXO8Iah76qezIa1lttUsHCNCPQ==",
+  "dgSpecHash": "uTjlPnU0qVOGJlJVur94hhUotDyX94rDD2dFg7PXc2La6QCaY4eAYzkvmQVFUkGgIx3+8vB2kETBszlhtp8uuw==",
   "success": true,
-  "projectFilePath": "c:\\Users\\Can\\Documents\\Visual Studio Code\\Net6ShCart\\Net6ShCart.csproj",
+  "projectFilePath": "C:\\Users\\Can\\Documents\\Visual Studio Code\\Net6ShCart\\Net6ShCart.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Can\\.nuget\\packages\\coverlet.collector\\3.1.2\\coverlet.collector.3.1.2.nupkg.sha512",
     "C:\\Users\\Can\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",

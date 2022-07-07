@@ -67,3 +67,13 @@
 2022-07-07 22:29:58.851 +03:00 [INF] Item Added Succesfuly
 2022-07-07 22:29:58.853 +03:00 [INF] Item Added Succesfuly
 2022-07-07 22:29:58.897 +03:00 [INF] Seed Succesful
+2022-07-07 23:42:13.144 +03:00 [INF] Main Logger Starting up
+2022-07-07 23:42:14.787 +03:00 [INF] Item Added Succesfuly
+2022-07-07 23:42:14.792 +03:00 [INF] Item Added Succesfuly
+2022-07-07 23:42:14.793 +03:00 [INF] Item Added Succesfuly
+2022-07-07 23:42:14.833 +03:00 [INF] Seed Succesful
+2022-07-07 23:43:10.148 +03:00 [INF] Main Logger Starting up
+2022-07-07 23:43:11.643 +03:00 [INF] Item Added Succesfuly
+2022-07-07 23:43:11.648 +03:00 [INF] Item Added Succesfuly
+2022-07-07 23:43:11.650 +03:00 [INF] Item Added Succesfuly
+2022-07-07 23:43:11.691 +03:00 [INF] Seed Succesful

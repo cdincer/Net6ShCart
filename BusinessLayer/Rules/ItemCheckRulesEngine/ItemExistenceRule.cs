@@ -35,11 +35,6 @@ namespace Net6ShCart.BusinessLayer.Rules.ItemCheckRulesEngine
                 Log.Fatal(ex, "Iten Existence Rule Failed");
                 return false;
             }
-            // finally
-            // {
-            //     Log.Information("Shut down complete");
-            //     Log.CloseAndFlush();
-            // }
         }
     }
 }

@@ -28,6 +28,7 @@ Listening on :http://localhost:7294
 Swagger is on:http://localhost:7294/swagger/index.html
 For docker things:
 While in Visual Studio Code, make sure you have the Docker extension and right click on "docker-compose.yml" file and pick "Compose Up"
+This is a Linux Enviroment Container.
 Afterwards same as above head to for
 Listening on:  http://localhost:7294
 Swagger is on: http://localhost:7294/swagger/index.html

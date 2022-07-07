@@ -37,11 +37,6 @@ namespace Net6ShCart.BusinessLayer.Rules.ItemCheckRulesEngine
                 Log.Fatal(ex, "Stock Limit Rule Failed");
                 return false;
             }
-            // finally
-            // {
-            //     Log.Information("Shut down complete");
-            //     Log.CloseAndFlush();
-            // }
         }
     }
 }
