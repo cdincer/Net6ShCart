@@ -23,7 +23,7 @@ namespace Net6ShCart.BusinessLayer
             _ProductRepo = productRepo;
         }
 
-        // GET: api/ShoppingCart /Read All
+        // GET: api/ShoppingCart /Read All Users Carts
         [HttpGet]
         [Route("GetAllCartItems")]
         public async Task<ActionResult<IEnumerable<ShoppingCartEntity>>> GetGetShoppingCartItems()
@@ -35,7 +35,28 @@ namespace Net6ShCart.BusinessLayer
             return await _repo.GetAllItemShoppingCart();
         }
 
-        // GET: UserID,ProductID /Read Single
+         // GET: api/ShoppingCart /Read Single Users Cart
+        [HttpGet]
+        [Route("GetUserShoppingCart")]
+        public async Task<ActionResult<IEnumerable<ShoppingCartEntity>>>   GetUserShoppingCart(long UserID)
+        { 
+            if (_context.ShoppingCartEntities == null)
+            {
+                 return NotFound();
+            }
+            
+            var ShoppingCartUser= await _repo.GetUserShoppingCart(UserID);
+
+             if (ShoppingCartUser == null)
+            {
+                return NotFound();
+            }
+
+
+        return ShoppingCartUser;
+        }
+        
+        // GET: UserID,ProductID /Read Single Item From a Cart
         [HttpGet]
         [Route("GetASingleItem")]
         public async Task<ActionResult<ShoppingCartEntity>> GetShoppingCartEntity(long UserID, long ProductID)

@@ -1,0 +1,29 @@
+2022-07-07 20:54:02.549 +03:00 [INF] Main Logger Starting up
+2022-07-07 20:54:04.241 +03:00 [INF] Item Added Succesfuly
+2022-07-07 20:54:04.246 +03:00 [INF] Item Added Succesfuly
+2022-07-07 20:54:04.247 +03:00 [INF] Item Added Succesfuly
+2022-07-07 20:54:04.287 +03:00 [INF] Seed Succesful
+2022-07-07 20:54:42.828 +03:00 [INF] Item Added Succesfuly
+2022-07-07 21:05:08.177 +03:00 [INF] Main Logger Starting up
+2022-07-07 21:05:09.695 +03:00 [INF] Item Added Succesfuly
+2022-07-07 21:05:09.700 +03:00 [INF] Item Added Succesfuly
+2022-07-07 21:05:09.701 +03:00 [INF] Item Added Succesfuly
+2022-07-07 21:05:09.744 +03:00 [INF] Seed Succesful
+2022-07-07 21:07:23.582 +03:00 [INF] Main Logger Starting up
+2022-07-07 21:07:25.160 +03:00 [INF] Item Added Succesfuly
+2022-07-07 21:07:25.168 +03:00 [INF] Item Added Succesfuly
+2022-07-07 21:07:25.170 +03:00 [INF] Item Added Succesfuly
+2022-07-07 21:07:25.214 +03:00 [INF] Seed Succesful
+2022-07-07 21:15:34.570 +03:00 [INF] Main Logger Starting up
+2022-07-07 21:15:36.226 +03:00 [INF] Item Added Succesfuly
+2022-07-07 21:15:36.231 +03:00 [INF] Item Added Succesfuly
+2022-07-07 21:15:36.233 +03:00 [INF] Item Added Succesfuly
+2022-07-07 21:15:36.275 +03:00 [INF] Seed Succesful
+2022-07-07 21:15:55.210 +03:00 [INF] Item Added Succesfuly
+2022-07-07 21:29:32.235 +03:00 [INF] Main Logger Starting up
+2022-07-07 21:29:33.857 +03:00 [INF] Item Added Succesfuly
+2022-07-07 21:29:33.862 +03:00 [INF] Item Added Succesfuly
+2022-07-07 21:29:33.864 +03:00 [INF] Item Added Succesfuly
+2022-07-07 21:29:33.907 +03:00 [INF] Seed Succesful
+2022-07-07 21:30:16.474 +03:00 [INF] Item Added Succesfuly
+2022-07-07 21:30:31.288 +03:00 [INF] Item Added Succesfuly

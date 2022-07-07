@@ -55,7 +55,7 @@ namespace Net6ShCart.DataLayer.ShoppingCart
            return null;
         }
 
-          public async Task<IActionResult> DeleteAllShoppingCart(long UserID)
+        public async Task<IActionResult> DeleteAllShoppingCart(long UserID)
         {
               if (_context.ShoppingCartEntities == null)
             {
@@ -106,6 +106,17 @@ namespace Net6ShCart.DataLayer.ShoppingCart
             await _context.SaveChangesAsync();
 
             return ItemToUpdate;
+        }
+
+        public async Task<ActionResult<IEnumerable<ShoppingCartEntity>>> GetUserShoppingCart(long UserID)
+        {
+             if (_context.ShoppingCartEntities == null)
+            {
+                return null;
+            }
+            var shoppingCartEntity =   await _context.ShoppingCartEntities.Where(c=>c.UserID == UserID).ToListAsync();
+
+            return shoppingCartEntity;
         }
     }
 }
