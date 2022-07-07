@@ -32,3 +32,38 @@
 2022-07-07 21:36:52.077 +03:00 [INF] Item Added Succesfuly
 2022-07-07 21:36:52.079 +03:00 [INF] Item Added Succesfuly
 2022-07-07 21:36:52.119 +03:00 [INF] Seed Succesful
+2022-07-07 22:18:48.530 +03:00 [INF] Main Logger Starting up
+2022-07-07 22:18:50.074 +03:00 [INF] Item Added Succesfuly
+2022-07-07 22:18:50.079 +03:00 [INF] Item Added Succesfuly
+2022-07-07 22:18:50.081 +03:00 [INF] Item Added Succesfuly
+2022-07-07 22:18:50.120 +03:00 [INF] Seed Succesful
+2022-07-07 22:19:32.985 +03:00 [INF] Main Logger Starting up
+2022-07-07 22:19:34.586 +03:00 [INF] Item Added Succesfuly
+2022-07-07 22:19:34.591 +03:00 [INF] Item Added Succesfuly
+2022-07-07 22:19:34.593 +03:00 [INF] Item Added Succesfuly
+2022-07-07 22:19:34.642 +03:00 [INF] Seed Succesful
+2022-07-07 22:27:21.528 +03:00 [INF] Main Logger Starting up
+2022-07-07 22:27:22.983 +03:00 [INF] Item Added Succesfuly
+2022-07-07 22:27:22.987 +03:00 [INF] Item Added Succesfuly
+2022-07-07 22:27:22.989 +03:00 [INF] Item Added Succesfuly
+2022-07-07 22:27:23.029 +03:00 [INF] Seed Succesful
+2022-07-07 22:27:59.309 +03:00 [INF] Main Logger Starting up
+2022-07-07 22:28:00.786 +03:00 [INF] Item Added Succesfuly
+2022-07-07 22:28:00.791 +03:00 [INF] Item Added Succesfuly
+2022-07-07 22:28:00.793 +03:00 [INF] Item Added Succesfuly
+2022-07-07 22:28:00.831 +03:00 [INF] Seed Succesful
+2022-07-07 22:28:23.141 +03:00 [INF] Main Logger Starting up
+2022-07-07 22:28:24.616 +03:00 [INF] Item Added Succesfuly
+2022-07-07 22:28:24.621 +03:00 [INF] Item Added Succesfuly
+2022-07-07 22:28:24.622 +03:00 [INF] Item Added Succesfuly
+2022-07-07 22:28:24.661 +03:00 [INF] Seed Succesful
+2022-07-07 22:29:29.144 +03:00 [INF] Main Logger Starting up
+2022-07-07 22:29:30.632 +03:00 [INF] Item Added Succesfuly
+2022-07-07 22:29:30.637 +03:00 [INF] Item Added Succesfuly
+2022-07-07 22:29:30.638 +03:00 [INF] Item Added Succesfuly
+2022-07-07 22:29:30.677 +03:00 [INF] Seed Succesful
+2022-07-07 22:29:57.378 +03:00 [INF] Main Logger Starting up
+2022-07-07 22:29:58.846 +03:00 [INF] Item Added Succesfuly
+2022-07-07 22:29:58.851 +03:00 [INF] Item Added Succesfuly
+2022-07-07 22:29:58.853 +03:00 [INF] Item Added Succesfuly
+2022-07-07 22:29:58.897 +03:00 [INF] Seed Succesful
