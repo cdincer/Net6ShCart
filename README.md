@@ -13,7 +13,7 @@ Technologies used on this project are:
 
 ### Features:
 ```
-1-Start to finish done in Visual Stuido Code. No Sln,no problem.
+1-Start to finish done in Visual Studio Code. No Sln,no problem.
 2-Single .csproj, no seperation for tests.
 3-Simple extensions are used: .NET Core Test Explorer, C# Extensions, Docker. 
 4-Two seperate DB Connections. One for testing only,one for development. For this project both of them are in-memory.

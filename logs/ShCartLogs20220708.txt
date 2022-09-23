@@ -1,0 +1,10 @@
+2022-07-08 00:15:21.381 +03:00 [INF] Main Logger Starting up
+2022-07-08 00:15:22.995 +03:00 [INF] Item Added Succesfuly
+2022-07-08 00:15:23.000 +03:00 [INF] Item Added Succesfuly
+2022-07-08 00:15:23.001 +03:00 [INF] Item Added Succesfuly
+2022-07-08 00:15:23.040 +03:00 [INF] Seed Succesful
+2022-07-08 00:16:25.114 +03:00 [INF] Main Logger Starting up
+2022-07-08 00:16:26.631 +03:00 [INF] Item Added Succesfuly
+2022-07-08 00:16:26.636 +03:00 [INF] Item Added Succesfuly
+2022-07-08 00:16:26.637 +03:00 [INF] Item Added Succesfuly
+2022-07-08 00:16:26.676 +03:00 [INF] Seed Succesful
