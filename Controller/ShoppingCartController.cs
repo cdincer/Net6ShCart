@@ -23,16 +23,24 @@ namespace Net6ShCart.Controller
             _ProductRepo = productRepo;
         }
 
-        // GET: api/ShoppingCart /Read All Users Carts
+
+        // GET: UserID,ProductID /Read Single Item From a Cart
         [HttpGet]
-        [Route("GetAll")]
-        public async Task<ActionResult<IEnumerable<ShoppingCartEntity>>> GetAll()
+        [Route("GetSingle")]
+        public async Task<ActionResult<ShoppingCartEntity>> GetSingle(long UserID, long ProductID)
         {
             if (_context.ShoppingCartEntities == null)
             {
                 return NotFound();
             }
-            return await _repo.GetAllItemShoppingCart();
+            var shoppingCartEntity = await _repo.GetItemShoppingCart(UserID, ProductID);
+
+            if (shoppingCartEntity == null)
+            {
+                return NotFound();
+            }
+
+            return shoppingCartEntity;
         }
 
         // GET: api/ShoppingCart /Read Single Users Cart
@@ -56,24 +64,19 @@ namespace Net6ShCart.Controller
             return ShoppingCartUser;
         }
 
-        // GET: UserID,ProductID /Read Single Item From a Cart
+
+        // GET: api/ShoppingCart /Read All Users Carts
         [HttpGet]
-        [Route("GetSingle")]
-        public async Task<ActionResult<ShoppingCartEntity>> GetSingle(long UserID, long ProductID)
+        [Route("GetAll")]
+        public async Task<ActionResult<IEnumerable<ShoppingCartEntity>>> GetAll()
         {
             if (_context.ShoppingCartEntities == null)
             {
                 return NotFound();
             }
-            var shoppingCartEntity = await _repo.GetItemShoppingCart(UserID, ProductID);
-
-            if (shoppingCartEntity == null)
-            {
-                return NotFound();
-            }
-
-            return shoppingCartEntity;
+            return await _repo.GetAllItemShoppingCart();
         }
+
 
         // PUT: api/ShoppingCart/5 
         [HttpPut]
