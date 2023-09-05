@@ -2,7 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Diagnostics.CodeAnalysis;
 using Net6ShCart.Entities;
 
-namespace  Net6ShCart.DataLayer
+namespace Net6ShCart.Database
 {
     public class ShoppingCartContext : DbContext
     {
@@ -20,7 +20,7 @@ namespace  Net6ShCart.DataLayer
         }
 
         public DbSet<ShoppingCartEntity> ShoppingCartEntities { get; set; } = null!;
-        public DbSet<ProductStockEntity> ProductStockEntities {get; set;} = null!;
-        public DbSet<ProductEntity> ProductEntities {get; set;} = null;
+        public DbSet<ProductStockEntity> ProductStockEntities { get; set; } = null!;
+        public DbSet<ProductEntity> ProductEntities { get; set; } = null;
     }
 }

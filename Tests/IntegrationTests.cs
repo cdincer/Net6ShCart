@@ -1,8 +1,8 @@
 using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
-using Net6ShCart.BusinessLayer;
-using Net6ShCart.DataLayer;
-using Net6ShCart.DataLayer.ShoppingCart;
+using Net6ShCart.Controller;
+using Net6ShCart.Database;
+using Net6ShCart.Database.Repository;
 using Net6ShCart.Entities;
 using Net6ShCart.Tests.Fixture;
 using Xunit;
@@ -90,7 +90,7 @@ namespace Net6ShCart.Tests
             Seed NewItems = new Seed(context);
             NewItems.SeedItems();
             #endregion
-            ShoppingController.PostShoppingCartEntity(shoppingCartEntity);
+            ShoppingController.PostEntity(shoppingCartEntity);
             List<ShoppingCartEntity> items = context.ShoppingCartEntities.ToList();
             result = items.Count == 4 ? true : false;
 
@@ -138,7 +138,7 @@ namespace Net6ShCart.Tests
             Seed NewItems = new Seed(context);
             NewItems.SeedItems();
             #endregion
-            await ShoppingController.PostShoppingCartEntity(shoppingCartEntity);
+            await ShoppingController.PostEntity(shoppingCartEntity);
             List<ShoppingCartEntity> items = context.ShoppingCartEntities.ToList();
             result = items.Count == 3 ? true : false;
 
@@ -186,8 +186,8 @@ namespace Net6ShCart.Tests
             Seed NewItems = new Seed(context);
             NewItems.SeedItems();
             #endregion
-            await ShoppingController.PutShoppingCartEntity(shoppingCartEntity);
-            var QuanityExpected = await ShoppingController.GetShoppingCartEntity(userID, productID);
+            await ShoppingController.PutEntity(shoppingCartEntity);
+            var QuanityExpected = await ShoppingController.GetSingle(userID, productID);
             result = QuanityExpected.Value.Quantity == 2 ? true : false;
 
             Assert.True(result);
@@ -234,7 +234,7 @@ namespace Net6ShCart.Tests
             Seed NewItems = new Seed(context);
             NewItems.SeedItems();
             #endregion
-            await ShoppingController.DeleteShoppingCartEntity(shoppingCartEntity);
+            await ShoppingController.DeleteEntity(shoppingCartEntity);
             List<ShoppingCartEntity> items = context.ShoppingCartEntities.ToList();
             result = items.Count == 2 ? true : false;
             Assert.True(result);
@@ -274,7 +274,7 @@ namespace Net6ShCart.Tests
             Seed NewItems = new Seed(context);
             NewItems.SeedItems();
             #endregion
-            await ShoppingController.DeleteAllShoppingCartEntity(userID);
+            await ShoppingController.DeleteAll(userID);
             List<ShoppingCartEntity> items = context.ShoppingCartEntities.ToList();
             result = items.Count == 1 ? true : false;
             Assert.True(result);

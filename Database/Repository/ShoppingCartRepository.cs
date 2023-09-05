@@ -3,7 +3,7 @@ using Net6ShCart.Entities;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
 
-namespace Net6ShCart.DataLayer.ShoppingCart
+namespace Net6ShCart.Database.Repository
 {
     public class ShoppingCartRepository : IShoppingCartRepository
     {
@@ -16,16 +16,17 @@ namespace Net6ShCart.DataLayer.ShoppingCart
 
         public async Task<ActionResult<ShoppingCartEntity>> AddItemShoppingCart(ShoppingCartEntity ItemToAdd)
         {
-            try{
-            if (_context.ShoppingCartEntities == null)
+            try
             {
-                return null;
+                if (_context.ShoppingCartEntities == null)
+                {
+                    return null;
+                }
+                _context.ShoppingCartEntities.Add(ItemToAdd);
+                await _context.SaveChangesAsync();
+                Log.Information("Item Added Succesfuly");
             }
-            _context.ShoppingCartEntities.Add(ItemToAdd);
-            await _context.SaveChangesAsync();
-            Log.Information("Item Added Succesfuly");
-            }
-              catch (Exception ex)
+            catch (Exception ex)
             {
                 Log.Fatal(ex, "Add Failed");
             }
@@ -52,16 +53,16 @@ namespace Net6ShCart.DataLayer.ShoppingCart
             _context.ShoppingCartEntities.Remove(RemoveEntity);
             await _context.SaveChangesAsync();
 
-           return null;
+            return null;
         }
 
         public async Task<IActionResult> DeleteAllShoppingCart(long UserID)
         {
-              if (_context.ShoppingCartEntities == null)
+            if (_context.ShoppingCartEntities == null)
             {
                 return null;
             }
-            var RemoveEntity =  _context.ShoppingCartEntities.Where(c=> c.UserID == UserID).ToList();
+            var RemoveEntity = _context.ShoppingCartEntities.Where(c => c.UserID == UserID).ToList();
             if (RemoveEntity == null)
             {
                 return null;
@@ -69,7 +70,7 @@ namespace Net6ShCart.DataLayer.ShoppingCart
             _context.ShoppingCartEntities.RemoveRange(RemoveEntity);
             await _context.SaveChangesAsync();
 
-           return null;
+            return null;
         }
 
         public async Task<ActionResult<IEnumerable<ShoppingCartEntity>>> GetAllItemShoppingCart()
@@ -110,11 +111,11 @@ namespace Net6ShCart.DataLayer.ShoppingCart
 
         public async Task<ActionResult<IEnumerable<ShoppingCartEntity>>> GetUserShoppingCart(long UserID)
         {
-             if (_context.ShoppingCartEntities == null)
+            if (_context.ShoppingCartEntities == null)
             {
                 return null;
             }
-            var shoppingCartEntity =   await _context.ShoppingCartEntities.Where(c=>c.UserID == UserID).ToListAsync();
+            var shoppingCartEntity = await _context.ShoppingCartEntities.Where(c => c.UserID == UserID).ToListAsync();
 
             return shoppingCartEntity;
         }

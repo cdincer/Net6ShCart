@@ -1,9 +1,9 @@
 using Microsoft.EntityFrameworkCore;
-using Net6ShCart.DataLayer;
+using Net6ShCart.Database;
 using Net6ShCart.Entities;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
-using Net6ShCart.DataLayer.ShoppingCart;
+using Net6ShCart.Database.Repository;
 using Serilog;
 
 internal class Program

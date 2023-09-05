@@ -2,11 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Net6ShCart.DataLayer.ShoppingCart;
+using Net6ShCart.Database.Repository;
 using Net6ShCart.Entities;
 using Serilog;
 
-namespace Net6ShCart.BusinessLayer.Rules.ItemCheckRulesEngine
+namespace Net6ShCart.Controller.Rules.ItemCheckRulesEngine
 {
     public class StockCalculator
     {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Net6ShCart.Entities;
 
-namespace Net6ShCart.BusinessLayer.Rules.ItemCheckRulesEngine
+namespace Net6ShCart.Controller.Rules.ItemCheckRulesEngine
 {
     public class StockCheckRuleEngine
     {
@@ -18,11 +18,11 @@ namespace Net6ShCart.BusinessLayer.Rules.ItemCheckRulesEngine
         public bool CheckStockRules(ShoppingCartEntity shoppingCartEntity)
         {
             bool decision = false;
-            foreach(var rule in _rules)
+            foreach (var rule in _rules)
             {
                 decision = rule.CalculateItemRule(shoppingCartEntity);
-                if(!decision)
-                break;
+                if (!decision)
+                    break;
             }
 
             return decision;

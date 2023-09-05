@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Net6ShCart.Entities;
 
-namespace Net6ShCart.DataLayer.ShoppingCart
+namespace Net6ShCart.Database.Repository
 {
     public interface IProductStockRepository
     {

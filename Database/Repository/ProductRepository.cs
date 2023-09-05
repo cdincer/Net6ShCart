@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Net6ShCart.Entities;
 
-namespace Net6ShCart.DataLayer.ShoppingCart
+namespace Net6ShCart.Database.Repository
 {
     public class ProductRepository : IProductRepository
     {
